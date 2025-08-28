@@ -1,19 +1,22 @@
 import "./App.css";
 import { Counter } from "./Counter.jsx";
+import { Gui } from "./Gui.jsx";
 
 function App() {
-  const { GUI: CounterGui, sourceCode: counterSource } = Counter;
   return (
     <>
       <h1>7 react GUIs</h1>
-      <p></p>
-      <div className="card">
-        <h2>First GUI: Counter</h2>
-        <p>
-          <em>Challenge:</em> Understanding the basic ideas of a
-          language/toolkit.
-        </p>
-        <CounterGui />
+      <p>
+        The descriptions for all tasks are taken from{" "}
+        <a href="https://eugenkiss.github.io/7guis/tasks/">
+          https://eugenkiss.github.io/7guis/tasks/
+        </a>
+      </p>
+      <Gui
+        title="First GUI: Counter"
+        example={Counter}
+        challenges={["Understanding the basic ideas of a language/toolkit."]}
+      >
         <p>
           The task is to build a frame containing a label or read-only textfield{" "}
           <code>T</code> and a button <code>B</code>. Initially, the value in{" "}
@@ -27,8 +30,7 @@ function App() {
           very basic features work together to build a GUI application. A good
           solution will have almost no scaffolding.
         </p>
-        <pre>{counterSource}</pre>
-      </div>
+      </Gui>
     </>
   );
 }

@@ -12,3 +12,10 @@ h2 {
 .card {
   padding: 2em;
 }
+
+.center-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
