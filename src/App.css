@@ -19,3 +19,9 @@ h2 {
   justify-content: space-evenly;
   width: 100%;
 }
+
+.input-error {
+  border-color: #990000;
+  background-color: #ffdddd;
+  color: #330000;
+}
