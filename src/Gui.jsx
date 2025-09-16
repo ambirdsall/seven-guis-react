@@ -15,7 +15,10 @@ export function Gui({ title, challenges, example, children }) {
         <ExampleGui />
       </div>
       {children}
-      <pre>{sourceCode}</pre>
+      <details>
+        <summary>Source code</summary>
+        <pre>{sourceCode}</pre>
+      </details>
     </div>
   );
 }
