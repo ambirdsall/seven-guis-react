@@ -1,5 +1,11 @@
-export function Gui({ title, challenges, example, children }) {
-  const { GUI: ExampleGui, sourceCode } = example;
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/prism/one-dark";
+import shinySyntaxTheme from "react-syntax-highlighter/dist/esm/styles/prism/synthwave84";
+
+SyntaxHighlighter.registerLanguage("jsx", jsx);
+
+export function Gui({ title, challenges, example, shiny, children }) {
   const challenge = (
     <p>
       <em>Challenge{challenges.length > 1 ? "s" : null}:</em>
@@ -17,7 +23,12 @@ export function Gui({ title, challenges, example, children }) {
       {children}
       <details>
         <summary>Source code</summary>
-        <pre>{sourceCode}</pre>
+        <SyntaxHighlighter
+          language="jsx"
+          style={shiny ? shinySyntaxTheme : syntaxTheme}
+        >
+          {sourceCode}
+        </SyntaxHighlighter>
       </details>
     </div>
   );

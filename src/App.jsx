@@ -1,9 +1,16 @@
-import "./App.css";
+import { useState } from "react";
+
 import { Gui } from "./Gui.jsx";
 import { Counter } from "./Counter.jsx";
 import { TemperatureConverter } from "./TemperatureConverter.jsx";
 
+import "./App.css";
+
 function App() {
+  const [isShiny, setIsShiny] = useState(false);
+  const toggleShininess = () => {
+    isShiny ? setIsShiny(false) : setIsShiny(true);
+  };
   return (
     <>
       <h1>7 react GUIs</h1>
@@ -17,6 +24,7 @@ function App() {
         title="First GUI: Counter"
         example={Counter}
         challenges={["Understanding the basic ideas of a language/toolkit."]}
+        shiny={isShiny}
       >
         <p>
           The task is to build a frame containing a label or read-only textfield{" "}
@@ -36,6 +44,7 @@ function App() {
         title="Temperature Converter"
         challenges={["bidirectional data flow", "user-provided text input"]}
         example={TemperatureConverter}
+        shiny={isShiny}
       >
         The task is to build a frame containing two textfields{" "}
         <code>
@@ -87,6 +96,11 @@ function App() {
         example—sometimes also in the form of a currency converter—that one
         could give a thousand references. The same is true for the Counter task.
       </Gui>
+      <div className="center-contents">
+        <button onClick={() => toggleShininess()}>
+          {isShiny ? "oh wow, too shiny" : "make the example code ✨shiny✨"}
+        </button>
+      </div>
     </>
   );
 }
