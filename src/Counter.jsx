@@ -23,4 +23,5 @@ export function Counter() {
     </button>
   )
 }`,
+  notes: 'Passes the "almost no scaffolding" criterion with its eyes closed.',
 };

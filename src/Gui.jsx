@@ -6,6 +6,7 @@ import shinySyntaxTheme from "react-syntax-highlighter/dist/esm/styles/prism/syn
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 
 export function Gui({ title, challenges, example, shiny, children }) {
+  const { GUI: ExampleGui, sourceCode, notes } = example;
   const challenge = (
     <p>
       <em>Challenge{challenges.length > 1 ? "s" : null}:</em>
@@ -17,12 +18,17 @@ export function Gui({ title, challenges, example, shiny, children }) {
     <div className="card">
       <h2>{title}</h2>
       {challenge}
+      {children}
       <div className="center-contents">
         <ExampleGui />
       </div>
-      {children}
       <details>
-        <summary>Source code</summary>
+        <summary>Source code and notes</summary>
+        {notes ? (
+          <aside>
+            <strong>Notes:</strong> {notes}
+          </aside>
+        ) : null}
         <SyntaxHighlighter
           language="jsx"
           style={shiny ? shinySyntaxTheme : syntaxTheme}
