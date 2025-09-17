@@ -19,23 +19,21 @@ export function Gui({ title, challenges, example, shiny, children }) {
       <h2>{title}</h2>
       {challenge}
       {children}
-      <div className="center-contents">
-        <ExampleGui />
+      <div className="gui-container">
+        <div className="center-contents">
+          <ExampleGui />
+        </div>
+        <details>
+          <summary>Source code and notes</summary>
+          {notes ? <aside>{notes}</aside> : null}
+          <SyntaxHighlighter
+            language="jsx"
+            style={shiny ? shinySyntaxTheme : syntaxTheme}
+          >
+            {sourceCode}
+          </SyntaxHighlighter>
+        </details>
       </div>
-      <details>
-        <summary>Source code and notes</summary>
-        {notes ? (
-          <aside>
-            <strong>Notes:</strong> {notes}
-          </aside>
-        ) : null}
-        <SyntaxHighlighter
-          language="jsx"
-          style={shiny ? shinySyntaxTheme : syntaxTheme}
-        >
-          {sourceCode}
-        </SyntaxHighlighter>
-      </details>
     </div>
   );
 }

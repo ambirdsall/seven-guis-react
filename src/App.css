@@ -9,6 +9,30 @@ h2 {
   text-align: center;
 }
 
+.gui-container {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-top: 1em;
+  background-color: hsl(from rgb(36, 36, 36) h s calc(l + 10));
+}
+details {
+  margin-top: 1em;
+  &:hover {
+    cursor: pointer;
+  }
+
+  & summary {
+    color: hsl(0, 0%, 7%);
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  & > :not(summary):first-of-type {
+    margin-top: 1em;
+  }
+}
+
 .card {
   padding: 2em;
 }
